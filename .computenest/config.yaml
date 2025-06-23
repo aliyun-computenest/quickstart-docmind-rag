@@ -1,0 +1,46 @@
+Service:
+  DeployType: ros
+  DeployMetadata:
+    SupplierDeployMetadata:
+      DeployTimeout: 7200
+      SupplierTemplateConfigs:
+        - Name: 模板1
+          Url: /ros_templates/template.yaml
+          PredefinedParameters: []
+          AllowedRegions:
+            - cn-beijing
+            - cn-hangzhou
+            - cn-heyuan
+    TemplateConfigs:
+      - Name: 模板1
+        Url: ros_templates/template.yaml
+        AllowedRegions:
+          - cn-beijing
+          - cn-hangzhou
+          - cn-heyuan
+        PredefinedParameters: []
+        DeployScene: ECS
+        OutputConfigs:
+          - OutputKey: __biubiu__
+            EnableWebProxy: false
+    NetworkMetadata:
+      EnablePrivateVpcConnection: false
+      EnableReversePrivateVpcConnection: false
+    ServiceInstanceNameRule:
+      UseDefaultValue: false
+  OperationMetadata:
+    SupportBackup: false
+    PrometheusConfigMap:
+      模板1:
+        EnablePrometheus: false
+  ServiceType: private
+  ServiceInfo:
+    - Agreements: []
+      Image: resources/icons/service_logo_zh-CN.png
+      Locale: zh-CN
+      Name: 智能文档分析系统
+      ShortDescription: 本服务使用文档智能（Document Mind）提供的文档解析（大模型版）解析本地文档，将解析结果接入百炼平台并创建知识库。基于该知识库的内容，实现增强检索生成（RAG）的问答应用。这一应用开发是基于 LlamaIndex 社区框架，并使用百炼平台提供的相关组件能力实现的。
+      Softwares: []
+  ShareType: Public
+  ApprovalType: Manual
+Artifact: {}
